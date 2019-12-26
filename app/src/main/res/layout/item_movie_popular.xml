@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="@drawable/cell_frame">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/popularMovieImageView"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/height_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMovieTitleTextView"
+        style="@style/TitleTextView"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_width="@dimen/width_270"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieImageView"
+        app:layout_constraintTop_toTopOf="@+id/popularMovieImageView"
+        tools:text="@string/title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMovieCategoryTextView"
+        style="@style/CategoryTextView"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_width="@dimen/width_237"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieImageView"
+        app:layout_constraintTop_toBottomOf="@+id/popularMovieTitleTextView"
+        tools:text="@string/genres" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/popularMovieRuntimeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMovieRuntimeTextView"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieImageView"
+        app:layout_constraintTop_toTopOf="@+id/popularMovieRuntimeTextView"
+        app:srcCompat="@drawable/time" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMovieRuntimeTextView"
+        style="@style/RuntimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        android:textSize="@dimen/text_12"
+        app:fontFamily="@font/sf_pro_display_regular"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMovieLine"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieRuntimeImageView"
+        app:layout_constraintTop_toTopOf="@+id/popularMovieLine"
+        tools:text="2.02" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMovieLine"
+        style="@style/ShortLine"
+        android:layout_width="@dimen/width_1"
+        android:layout_height="@dimen/height_11"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMovieReleaseDateImageView"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieRuntimeTextView"
+        app:layout_constraintTop_toTopOf="@+id/popularMovieReleaseDateImageView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/popularMovieReleaseDateImageView"
+        android:layout_width="@dimen/margin_15"
+        android:layout_height="@dimen/margin_15"
+        android:layout_marginStart="@dimen/margin_20"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMovieReleaseDateTextView"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieLine"
+        app:layout_constraintTop_toTopOf="@+id/popularMovieReleaseDateTextView"
+        app:srcCompat="@drawable/calendar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMovieReleaseDateTextView"
+        style="@style/ReleaseDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMoviesRightLine"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieReleaseDateImageView"
+        app:layout_constraintTop_toTopOf="@+id/popularMoviesRightLine" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMoviesRightLine"
+        style="@style/ShortLine"
+        android:layout_width="@dimen/width_1"
+        android:layout_height="@dimen/height_11"
+        android:layout_marginEnd="@dimen/margin_20"
+        android:background="@color/lineBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/popularMoviesVoteAverageTextView"
+        app:layout_constraintEnd_toStartOf="@+id/popularMoviesVoteAverageTextView"
+        app:layout_constraintTop_toTopOf="@+id/popularMoviesVoteAverageTextView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/popularMoviesVoteAverageTextView"
+        style="@style/MainVoteAverageTextView"
+        android:layout_width="@dimen/margin_55"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_7"
+        android:layout_marginEnd="@dimen/margin_25"
+        android:drawablePadding="@dimen/margin_5"
+        android:paddingVertical="@dimen/margin_4"
+        android:paddingLeft="@dimen/voteAverageLeftPadding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popularMovieCategoryTextView"
+        tools:text="8.9" />
+
+    <ProgressBar
+        android:id="@+id/popularMovieProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height_20"
+        android:indeterminateTint="@color/almostBlack"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@+id/popularMovieCategoryTextView"
+        app:layout_constraintTop_toBottomOf="@+id/popularMovieTitleTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

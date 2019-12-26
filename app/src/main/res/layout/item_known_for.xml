@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/combineCreditsRowConstrainLayout"
+    android:layout_width="360dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="@drawable/known_for_frame">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/combineCreditsPosterImageView"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/height_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/combineCreditsTitleTextView"
+        style="@style/TitleTextView"
+        android:layout_width="@dimen/width_270"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        app:layout_constraintStart_toEndOf="@+id/combineCreditsPosterImageView"
+        app:layout_constraintTop_toTopOf="@+id/combineCreditsPosterImageView"
+        tools:text="@string/title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/combineCreditsCharacterTextView"
+        style="@style/CategoryTextView"
+        android:layout_width="@dimen/width_237"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        app:layout_constraintStart_toEndOf="@+id/combineCreditsPosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/combineCreditsTitleTextView"
+        tools:text="@string/genres" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/combineCreditsReleaseDateImageView"
+        android:layout_width="@dimen/margin_15"
+        android:layout_height="@dimen/margin_15"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintStart_toEndOf="@+id/combineCreditsPosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/combineCreditsCharacterTextView"
+        app:srcCompat="@drawable/calendar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/combineCreditsReleaseDateTextView"
+        style="@style/KnownForDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_7"
+        app:layout_constraintStart_toEndOf="@+id/combineCreditsReleaseDateImageView"
+        app:layout_constraintTop_toBottomOf="@+id/combineCreditsCharacterTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

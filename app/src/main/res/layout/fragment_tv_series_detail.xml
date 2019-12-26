@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:scrollbars="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/margin_55"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tvSeriesDetailPosterImageView"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailVoteAverageTextView"
+            style="@style/MainVoteAverageTextView"
+            android:layout_width="@dimen/margin_55"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            android:layout_marginTop="390dp"
+            android:paddingVertical="@dimen/margin_4"
+            android:paddingLeft="@dimen/voteAverageLeftPadding"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvSeriesDetailPosterImageView"
+            tools:text="9.2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailTitleTextView"
+            style="@style/TitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_10"
+            app:layout_constraintEnd_toStartOf="@+id/favSeriesButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailVoteAverageTextView"
+            tools:text="titleForSeriesTextView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/favSeriesButton"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="@dimen/facorite_icon"
+            android:layout_height="@dimen/facorite_icon"
+            android:layout_marginTop="@dimen/itemTopAndBottomSpace"
+            android:layout_marginEnd="@dimen/mainFragmentsRightSpace"
+            android:background="@drawable/icon_heart_white"
+            android:outlineProvider="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailPosterImageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailCategoryTextView"
+            style="@style/CategoryTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            android:layout_marginEnd="@dimen/margin_10"
+            app:layout_constraintEnd_toStartOf="@+id/favSeriesButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailTitleTextView"
+            tools:text="genreDetailsPageSeriesTextView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tvSeriesDetailRuntimeImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCategoryTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailRuntimeTextView"
+            style="@style/DetailRuntimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/tvSeriesDetailRuntimeImageView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCategoryTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailShortLineTextView"
+            style="@style/ShortLine"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            app:layout_constraintStart_toEndOf="@+id/tvSeriesDetailRuntimeTextView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCategoryTextView" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tvSeriesDetailDateImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            android:src="@drawable/calendar"
+            app:layout_constraintStart_toEndOf="@+id/tvSeriesDetailShortLineTextView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCategoryTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailDateTextView"
+            style="@style/DetailDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/tvSeriesDetailDateImageView"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCategoryTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailLongLine"
+            android:layout_width="@dimen/width_320"
+            android:layout_height="@dimen/margin_1"
+            android:layout_marginTop="22dp"
+            android:background="#6699cc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailRuntimeImageView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailOverviewTextView"
+            style="@style/OverviewTextView"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="@dimen/margin_20"
+            android:fadeScrollbars="true"
+            android:isScrollContainer="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailLongLine"
+            tools:text="overviewDetailsPageSeriesTextView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailSeasonsTextView"
+            style="@style/SeasonsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            android:paddingLeft="@dimen/margin_10"
+            android:paddingRight="@dimen/margin_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailOverviewTextView"
+            tools:text="seasons" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSeriesDetailCreatorsTextView"
+            style="@style/OverviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            android:layout_marginTop="@dimen/margin_5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailSeasonsTextView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tvSeriesDetailCastRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeriesDetailCreatorsTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+

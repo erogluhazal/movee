@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/cell_frame_for_top_rated_series"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/topRatedTvSeriesPosterImageView"
+        android:layout_width="@dimen/width_170"
+        android:layout_height="@dimen/width_242"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorPrimary" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/topRatedTvSeriesTitleTextView"
+        style="@style/TitleTextView"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_width="@dimen/width_150"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topRatedTvSeriesPosterImageView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/topRatedTvSerieVoteAverageTextView"
+        style="@style/MainVoteAverageTextView"
+        android:layout_width="@dimen/margin_55"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:drawablePadding="@dimen/margin_5"
+        android:paddingVertical="@dimen/margin_4"
+        android:paddingLeft="@dimen/voteAverageLeftPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topRatedTvSeriesTitleTextView"
+        tools:text="8.9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

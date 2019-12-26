@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchPageRecyclerMovieConstraintLayout"
+    android:layout_width="@dimen/width_380"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="@drawable/cell_frame">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageRecyclerMoviePosterImageView"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/height_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerMovieTitleTextView"
+        style="@style/TitleTextView"
+        android:layout_width="@dimen/width_270"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerMoviePosterImageView"
+        app:layout_constraintTop_toTopOf="@+id/searchPageRecyclerMoviePosterImageView"
+        tools:text="@string/title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerMovieActorsTextView"
+        style="@style/CategoryTextView"
+        android:layout_width="@dimen/width_237"
+        android:layout_height="@dimen/height_20"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerMoviePosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerMovieTitleTextView"
+        tools:text="Actor Name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageRecyclerMovieImageView"
+        android:layout_width="@dimen/margin_15"
+        android:layout_height="@dimen/margin_15"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerMoviePosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerMovieActorsTextView"
+        app:srcCompat="@drawable/movies3x" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerMovieTextView"
+        style="@style/SearchPageMediaTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_7"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerMovieImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerMovieActorsTextView"
+        android:text="@string/movies" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

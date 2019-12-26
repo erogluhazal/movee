@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchPageRecyclerSerieConstraintLayout"
+    android:layout_width="@dimen/width_380"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="@drawable/cell_frame">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageRecyclerSeriePosterImageView"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/height_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerSerieTitleTextView"
+        style="@style/TitleTextView"
+        android:layout_width="@dimen/width_270"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerSeriePosterImageView"
+        app:layout_constraintTop_toTopOf="@+id/searchPageRecyclerSeriePosterImageView"
+        tools:text="@string/title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerSerieActorsTextView"
+        style="@style/CategoryTextView"
+        android:layout_width="@dimen/width_237"
+        android:layout_height="@dimen/height_20"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerSeriePosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerSerieTitleTextView"
+        tools:text="Actor Name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageRecyclerSerieImageView"
+        android:layout_width="@dimen/margin_15"
+        android:layout_height="@dimen/margin_15"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerSeriePosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerSerieActorsTextView"
+        app:srcCompat="@drawable/tvseries3x" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerSerieTextView"
+        style="@style/SearchPageMediaTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_7"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerSerieImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerSerieActorsTextView"
+        android:text="@string/tvSeries" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

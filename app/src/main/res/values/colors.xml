@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#2B178F</color>
+    <color name="textColor">#08090A</color>
+    <color name="backgroundColor">#EB222525</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lineBackground">#6699cc</color>
+    <color name="color_onshowing_list_background">#0146FF</color>
+    <color name="appBackground">#F4F4F4</color>
+    <color name="linkColor">#003dff</color>
+    <color name="almostBlack">#08090A</color>
+    <color name="hintColor">#83FFFFFF</color>
+</resources>

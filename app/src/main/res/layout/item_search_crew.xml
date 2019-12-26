@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchPageRecyclerCrewConstraintLayout"
+    android:layout_width="@dimen/width_380"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:background="@drawable/cell_frame">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageRecyclerCrewPosterImageView"
+        android:layout_width="@dimen/width_70"
+        android:layout_height="@dimen/height_100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchPageRecyclerCrewNameTextView"
+        style="@style/TitleTextView"
+        android:layout_width="@dimen/width_270"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerCrewPosterImageView"
+        app:layout_constraintTop_toTopOf="@+id/searchPageRecyclerCrewPosterImageView"
+        tools:text="@string/name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/crewPersonDepartment"
+        style="@style/CategoryTextView"
+        android:layout_width="@dimen/width_237"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomRowsleftSpace"
+        android:layout_marginTop="@dimen/margin_20"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/searchPageRecyclerCrewPosterImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageRecyclerCrewNameTextView"
+        tools:text="@string/department" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

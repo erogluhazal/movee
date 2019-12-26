@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_drawable"
+    tools:context=".search.SearchFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/searchTitleTextView"
+        style="@style/PageTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="@string/search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/searchPageEditText"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_edit_text"
+        android:layout_marginStart="@dimen/mainFragmentsLeftSpace"
+        android:layout_marginTop="@dimen/editTextTopMargin"
+        android:layout_marginEnd="@dimen/margin_10"
+        android:background="@drawable/drawable_search"
+        android:drawableStart="@drawable/icon_search"
+        android:drawableEnd="@drawable/icon_small_x"
+        android:drawablePadding="@dimen/drawablePadding"
+        android:ems="10"
+        android:hint="@string/movies_or_series"
+        android:paddingStart="@dimen/editTextLeftRightPadding"
+        android:paddingEnd="@dimen/editTextLeftRightPadding"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/searchPageCancelButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchTitleTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/searchPageCancelButton"
+        style="@style/CancelButton"
+        android:layout_width="@dimen/width_cancel_button"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/itemTopAndBottomSpace"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:text="@android:string/cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/searchPageEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchPageEditText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchListRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mainFragmentsLeftSpace"
+        android:layout_marginTop="@dimen/itemTopAndBottomSpace"
+        android:layout_marginRight="@dimen/mainFragmentsLeftSpace"
+        android:background="#00FFFFFF"
+        android:foregroundGravity="center"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageEditText" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/searchPageAnyResultImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/anyResultImageTopSpace"
+        android:src="@drawable/illustration_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageEditText"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="@dimen/width_any_result_text"
+        android:id="@+id/searchPageAnyResultTextView"
+        android:layout_height="wrap_content"
+        style="@style/SearchPageAnyResultTextView"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/any_result"
+        app:layout_constraintTop_toBottomOf="@+id/searchPageAnyResultImageView"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,225 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/color_onshowing_list_background</item>
+    </style>
+
+    <style name="MainTitleTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_22</item>
+    </style>
+
+    <style name="LongLineTextView">
+        <item name="android:background">@color/backgroundColor</item>
+    </style>
+
+    <style name="MainCategoryTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="PageTitleTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_34</item>
+    </style>
+
+    <style name="MainVoteAverageTextView">
+        <item name="android:background">@drawable/frame</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:fontFamily">@font/sf_pro_display_black</item>
+        <item name="android:drawableLeft">@drawable/star</item>
+    </style>
+
+    <style name="PopularTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_22</item>
+    </style>
+
+    <style name="TitleTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_20</item>
+    </style>
+
+    <style name="CategoryTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="RuntimeTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_12</item>
+    </style>
+
+    <style name="ShortLine">
+        <item name="android:background">@color/lineBackground</item>
+    </style>
+
+    <style name="ReleaseDateTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_12</item>
+    </style>
+
+    <style name="VoteAverageTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_black</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_10</item>
+        <item name="android:background">@drawable/frame</item>
+        <item name="android:drawableLeft">@drawable/star</item>
+    </style>
+
+    <style name="DetailRuntimeTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="DetailDateTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="OverviewTextView">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_17</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="SeasonsTextView">
+        <item name="android:background">@drawable/seasons_text_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:fontFamily">@font/sf_pro_display_black</item>
+    </style>
+
+    <style name="CreditNameTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textSize">@dimen/text_size_credit_name</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="SeeLessText">
+        <item name="android:textColor">@color/linkColor</item>
+        <item name="android:textSize">@dimen/text_17</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+    </style>
+
+    <style name="KnownForTextView">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_22</item>
+    </style>
+
+    <style name="KnownForDate">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="CastPhotos">
+        <item name="android:background">@drawable/cast_photos_border</item>
+    </style>
+
+    <style name="SearchPageMediaTypeTextView">
+        <item name="android:color">@color/almostBlack</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:alpha">60</item>
+    </style>
+
+    <style name="SearchPageAnyResultTextView">
+        <item name="android:textColor">@color/linkColor</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="CancelButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:background">#00FFFFFF</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text_17</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="LoginBackground">
+        <item name="android:background">@drawable/background_login</item>
+    </style>
+
+    <style name="EmailAndPasswordTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+    <style name="EmailAndPassword">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_email</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="ForgotPasswordButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:background">#00FFFFFF</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text_12</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
+
+    <style name="LoginButton">
+        <item name="android:textColor">@color/linkColor</item>
+        <item name="android:background">@drawable/drawable_search</item>
+        <item name="android:textSize">@dimen/text_17</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+    </style>
+
+    <style name="HelloTextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/text_20</item>
+        <item name="android:drawableRight">@drawable/img_emoji_hello</item>
+        <item name="android:drawablePadding">@dimen/margin_5</item>
+    </style>
+
+    <style name="ProfileUsernameTextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textSize">@dimen/profile_user_name</item>
+    </style>
+
+    <style name="IncorrectPw">
+        <item name="android:background">#00FFFFFF</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/text_15</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+</resources>

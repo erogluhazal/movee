@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/img_bg_splash" />
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/app_logo" />
+    </item>
+    <item
+        android:bottom="@dimen/bottom_margin_splash_item"
+        android:right="@dimen/bottom_margin_left_splash_item">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/we" />
+    </item>
+    <item android:bottom="@dimen/bottom_margin_splash_item">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/img_emoji_splash" />
+    </item>
+    <item
+        android:bottom="@dimen/bottom_margin_splash_item"
+        android:left="@dimen/bottom_margin_right_splash_item">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@drawable/movie_xxx" />
+    </item>
+</layer-list>

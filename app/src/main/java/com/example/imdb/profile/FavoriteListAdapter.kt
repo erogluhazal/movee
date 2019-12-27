@@ -61,25 +61,20 @@ class FavoriteListAdapter(
         var account_id = sharedPref?.getInt(LoginFragment.ACCOUNT_ID, 0)
 
         holder.view.favButton.setOnClickListener {
+            holder.view.favButton.setBackgroundResource(R.drawable.icon_heart_white)
             if (favoriteItem.title != null) {
-                if (account_id != null && session_id != "") {
 
-                    with(holder) {
-                        Snackbar.make(
-                            view,
-                            view.context.getString(R.string.snackbar_item_delete),
-                            Snackbar.LENGTH_LONG
-                        ).addCallback(object : Snackbar.Callback() {
-                            override fun onShown(sb: Snackbar?) {
-                                super.onShown(sb)
-                                it.favButton.setBackgroundResource(R.drawable.icon_heart_white)
-                            }
+                val snackbar = Snackbar.make(
+                    holder.view,
+                    holder.view.context.getString(R.string.snackbar_item_delete),
+                    Snackbar.LENGTH_LONG
+                )
 
-                            override fun onDismissed(
-                                transientBottomBar: Snackbar?,
-                                event: Int
-                            ) {
-                                super.onDismissed(transientBottomBar, event)
+                snackbar.addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                        super.onDismissed(transientBottomBar, event)
+                        if (event == DISMISS_EVENT_TIMEOUT) {
+                            if (account_id != null && session_id != "") {
                                 with(favoriteRequestModel) {
                                     favorite = false
                                     mediaId = favoriteItem.id
@@ -89,14 +84,11 @@ class FavoriteListAdapter(
                                     account_id,
                                     session_id,
                                     favoriteRequestModel,
-                                    listener = object :
-                                        NetworkService.Listener<FavoriteResponseModel> {
+                                    object : NetworkService.Listener<FavoriteResponseModel> {
                                         override fun onSuccess(result: FavoriteResponseModel) {
                                             holder.view.context.activity()?.run {
                                                 runOnUiThread {
-                                                    holder.view.favButton.setBackgroundResource(
-                                                        R.drawable.icon_heart_red
-                                                    )
+                                                    ProfileFragment.favoriteList.remove(favoriteItem)
                                                     notifyDataSetChanged()
                                                 }
                                             }
@@ -110,50 +102,134 @@ class FavoriteListAdapter(
                                             )
                                         }
                                     })
-                                ProfileFragment.favoriteList.remove(favoriteItem)
-                            }
-                        })
-                            .setAction(view.context.getString(R.string.snackbar_item_delete_undo)) { _ -> }
-                        //TODO: snackbar
-
-                    }
-
-
-                } else {
-                    holder.view.context.showMessage(holder.view.context.getString(R.string.error))
-                }
-            } else {
-                with(favoriteRequestModel) {
-                    favorite = false
-                    mediaId = favoriteItem.id
-                    mediaType = TV_MEDIA_TYPE
-                }
-                if (account_id != null && session_id != "") {
-                    networkService.postFavoriteItem(
-                        account_id,
-                        session_id,
-                        favoriteRequestModel,
-                        listener = object : NetworkService.Listener<FavoriteResponseModel> {
-                            override fun onSuccess(result: FavoriteResponseModel) {
-                                holder.view.context.activity()?.run {
-                                    runOnUiThread {
-                                        it.favButton.setBackgroundResource(R.drawable.icon_heart_white)
-                                        ProfileFragment.favoriteList.remove(favoriteItem)
-                                        with(holder) {
-                                            //TODO: snackbar
-                                        }
-                                        notifyDataSetChanged()
-                                    }
-                                }
-                            }
-
-                            override fun onError(error: ErrorModel) {
+                            } else {
                                 holder.view.context.showMessage(holder.view.context.getString(R.string.error))
                             }
-                        })
-                } else {
-                    holder.view.context.showMessage(holder.view.context.getString(R.string.error))
-                }
+                        }
+                    }
+
+                    override fun onShown(sb: Snackbar?) {
+                        super.onShown(sb)
+                        holder.view.favButton.setBackgroundResource(R.drawable.icon_heart_white)
+                        snackbar.setAction(holder.view.context.getString(R.string.snackbar_item_delete_undo)) { _ ->
+                            if (account_id != null && session_id != "") {
+                                with(favoriteRequestModel) {
+                                    favorite = true
+                                    mediaId = favoriteItem.id
+                                    mediaType = MOVIE_MEDIA_TYPE
+                                }
+                                networkService.postFavoriteItem(
+                                    account_id,
+                                    session_id,
+                                    favoriteRequestModel,
+                                    object : NetworkService.Listener<FavoriteResponseModel> {
+                                        override fun onSuccess(result: FavoriteResponseModel) {
+                                            holder.view.context.activity()?.run {
+                                                runOnUiThread {
+                                                    holder.view.favButton.setBackgroundResource(R.drawable.icon_heart_red)
+                                                    notifyDataSetChanged()
+                                                }
+                                            }
+                                        }
+
+                                        override fun onError(error: ErrorModel) {
+                                            holder.view.context.showMessage(
+                                                holder.view.context.getString(
+                                                    R.string.error
+                                                )
+                                            )
+                                        }
+                                    })
+                            } else {
+                                holder.view.context.showMessage(holder.view.context.getString(R.string.error))
+                            }
+                        }
+                    }
+                }).show()
+
+            } else {
+                val snackbar = Snackbar.make(
+                    holder.view,
+                    holder.view.context.getString(R.string.snackbar_item_delete),
+                    Snackbar.LENGTH_LONG
+                )
+
+                snackbar.addCallback(object : Snackbar.Callback() {
+                    override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                        super.onDismissed(transientBottomBar, event)
+                        if (event == DISMISS_EVENT_TIMEOUT) {
+                            if (account_id != null && session_id != "") {
+                                with(favoriteRequestModel) {
+                                    favorite = false
+                                    mediaId = favoriteItem.id
+                                    mediaType = TV_MEDIA_TYPE
+                                }
+                                networkService.postFavoriteItem(
+                                    account_id,
+                                    session_id,
+                                    favoriteRequestModel,
+                                    object : NetworkService.Listener<FavoriteResponseModel> {
+                                        override fun onSuccess(result: FavoriteResponseModel) {
+                                            holder.view.context.activity()?.run {
+                                                runOnUiThread {
+                                                    ProfileFragment.favoriteList.remove(favoriteItem)
+                                                    notifyDataSetChanged()
+                                                }
+                                            }
+                                        }
+
+                                        override fun onError(error: ErrorModel) {
+                                            holder.view.context.showMessage(
+                                                holder.view.context.getString(
+                                                    R.string.error
+                                                )
+                                            )
+                                        }
+                                    })
+                            } else {
+                                holder.view.context.showMessage(holder.view.context.getString(R.string.error))
+                            }
+                        }
+                    }
+
+                    override fun onShown(sb: Snackbar?) {
+                        super.onShown(sb)
+                        holder.view.favButton.setBackgroundResource(R.drawable.icon_heart_white)
+                        snackbar.setAction(holder.view.context.getString(R.string.snackbar_item_delete_undo)) { _ ->
+                            if (account_id != null && session_id != "") {
+                                with(favoriteRequestModel) {
+                                    favorite = true
+                                    mediaId = favoriteItem.id
+                                    mediaType = TV_MEDIA_TYPE
+                                }
+                                networkService.postFavoriteItem(
+                                    account_id,
+                                    session_id,
+                                    favoriteRequestModel,
+                                    object : NetworkService.Listener<FavoriteResponseModel> {
+                                        override fun onSuccess(result: FavoriteResponseModel) {
+                                            holder.view.context.activity()?.run {
+                                                runOnUiThread {
+                                                    holder.view.favButton.setBackgroundResource(R.drawable.icon_heart_red)
+                                                    notifyDataSetChanged()
+                                                }
+                                            }
+                                        }
+
+                                        override fun onError(error: ErrorModel) {
+                                            holder.view.context.showMessage(
+                                                holder.view.context.getString(
+                                                    R.string.error
+                                                )
+                                            )
+                                        }
+                                    })
+                            } else {
+                                holder.view.context.showMessage(holder.view.context.getString(R.string.error))
+                            }
+                        }
+                    }
+                }).show()
             }
         }
 
@@ -174,49 +250,6 @@ class FavoriteListAdapter(
         holder.view.favoriteItemImageView.setOnClickListener {
             itemClickListener?.onItemClick(favoriteItem)
         }
-    }
-
-    fun snackBarPost(
-        holder: CustomViewHolder,
-        id: Int?,
-        type: String,
-        account_id: Int,
-        session_id: String
-    ) {
-        Snackbar.make(
-            holder.view,
-            holder.view.context.getString(R.string.snackbar_item_delete),
-            Snackbar.LENGTH_LONG
-        )
-            .setAction(holder.view.context.getString(R.string.snackbar_item_delete_undo)) { _ ->
-                with(favoriteRequestModel) {
-                    favorite = true
-                    mediaId = id
-                    mediaType = type
-                }
-                networkService.postFavoriteItem(
-                    account_id,
-                    session_id,
-                    favoriteRequestModel,
-                    listener = object :
-                        NetworkService.Listener<FavoriteResponseModel> {
-                        override fun onSuccess(result: FavoriteResponseModel) {
-                            holder.view.context.activity()?.run {
-                                runOnUiThread {
-                                    holder.view.favButton.setBackgroundResource(
-                                        R.drawable.icon_heart_red
-                                    )
-                                    notifyDataSetChanged()
-                                }
-                            }
-                        }
-
-                        override fun onError(error: ErrorModel) {
-                            holder.view.context.showMessage(holder.view.context.getString(R.string.error))
-                        }
-                    })
-            }
-            .show()
     }
 
     inner class CustomViewHolder(val view: View) : RecyclerView.ViewHolder(view)

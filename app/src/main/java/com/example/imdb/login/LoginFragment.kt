@@ -11,7 +11,6 @@ import com.example.imdb.ErrorModel
 import com.example.imdb.NetworkService
 import com.example.imdb.NetworkServiceImpl
 import com.example.imdb.R
-import com.example.imdb.extension.closeKeyboard
 import com.example.imdb.extension.setOnDrawableEndClick
 import com.example.imdb.extension.showMessage
 import com.example.imdb.model.account.AccountDetailModel
@@ -51,18 +50,18 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         registerButton.setOnClickListener {
-            navigateToRegisterPage()
+            navigate(R.id.tvSeriesDetailLayout, RegisterFragment())
         }
 
         forgotPasswordButton.setOnClickListener {
-            navigateToForgotPasswordPage()
+            navigate(R.id.tvSeriesDetailLayout, ForgotPasswordFragment())
         }
 
         val sharedPref =
             context?.getSharedPreferences(ProfileFragment.SP_INFO, Context.MODE_PRIVATE)
         var login = sharedPref?.getBoolean(ProfileFragment.LOGIN, false) ?: false
         if (login) {
-            navigateToHomePage()
+            navigate(R.id.tvSeriesDetailLayout, MainContainerFragment())
         } else {
             loginButton.setOnClickListener {
                 loginProgressBar.visibility = View.VISIBLE
@@ -74,7 +73,7 @@ class LoginFragment : Fragment() {
                     loginProgressBar.visibility = View.INVISIBLE
                 } else if (email != null || (password != null && password!!.length < 4)) {
                     warningTextView.visibility = View.VISIBLE
-                    warningTextView.text = context?.getString(R.string.passwordLength)
+                    warningTextView.text = context?.getString(R.string.passwordLength, 4)
                     loginProgressBar.visibility = View.INVISIBLE
                 }
                 loginFunctions()
@@ -121,7 +120,9 @@ class LoginFragment : Fragment() {
                                 )
                                 editor?.putBoolean(ProfileFragment.LOGIN, true)
                                 editor?.apply()
-                                navigateToHomePage()
+                                navigate(R.id.tvSeriesDetailLayout, MainContainerFragment())
+
+                                navigate(R.id.tvSeriesDetailLayout, MainContainerFragment())
                                 networkService.createSession(
                                     model = tokenModel,
                                     listener = object : NetworkService.Listener<SessionModel> {
@@ -176,28 +177,14 @@ class LoginFragment : Fragment() {
         })
     }
 
-    private fun navigateToHomePage() {
-        activity?.closeKeyboard()
+    fun navigate(int: Int, fragment: Fragment) {
         fragmentManager?.beginTransaction()?.run {
-            replace(R.id.tvSeriesDetailLayout, MainContainerFragment.newInstance())
-            commitAllowingStateLoss()
-            remove(this@LoginFragment)
-        }
-    }
-
-    private fun navigateToRegisterPage() {
-        fragmentManager?.beginTransaction()?.run {
-            replace(R.id.tvSeriesDetailLayout, RegisterFragment.newInstance())
+            replace(int, fragment)
             addToBackStack("")
             commitAllowingStateLoss()
-        }
-    }
-
-    private fun navigateToForgotPasswordPage() {
-        fragmentManager?.beginTransaction()?.run {
-            replace(R.id.tvSeriesDetailLayout, MainContainerFragment.newInstance())
-            addToBackStack("")
-            commitAllowingStateLoss()
+            if (fragment == MainContainerFragment()) {
+                remove(this@LoginFragment)
+            }
         }
     }
 

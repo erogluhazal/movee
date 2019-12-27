@@ -30,11 +30,11 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        goForgotPasswordPage()
+        loadForgotPasswordPage()
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun goForgotPasswordPage() {
+    fun loadForgotPasswordPage() {
         val webView = view?.findViewById<WebView>(R.id.forgotPasswordWebView)
         forgotPasswordWebView?.settings?.javaScriptEnabled = true
         webView?.webViewClient = object : WebViewClient() {

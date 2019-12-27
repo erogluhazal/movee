@@ -43,7 +43,7 @@
     <string name="login_error">Please try again!</string>
     <string name="error">Ups, something went wrong, check network connection or try again later!</string>
     <string name="try_again">Please, try again</string>
-    <string name="passwordLength">Password needs to be at least 4 characters long</string>
+    <string name="passwordLength">Password needs to be at least %1d characters long</string>
     <string name="favorite">Favorites</string>
     <string name="snackbar_item_delete">Item was deleted</string>
     <string name="snackbar_item_delete_undo">Item add</string>
